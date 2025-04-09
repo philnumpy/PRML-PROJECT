@@ -5,7 +5,8 @@ import { MdSkipPrevious, MdSkipNext, MdOutlinePause } from "react-icons/md";
 import { IoPlay } from "react-icons/io5";
 import { datacontext } from "../context/UserContext";
 import Card from "../components/Card";
-import Input from "../components/input";
+import SongInput from "../components/SongInput";
+
 import Header from "../components/Header";
 import { Provider } from "react-redux"; 
 import { store } from "../redux/store";
@@ -102,7 +103,7 @@ function HomeContent() {
   ref={inputSectionRef}
   className="w-screen h-screen flex flex-col justify-center items-center bg-gradient-to-b from-black via-gray-900 to-black text-white"
 >
-  <Input />
+<SongInput />
 </div>
 
       <div className="flex flex-col md:flex-row w-full h-full">

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import config from "../config"; 
+console.log("🎤 SongInput component mounted");
 
 const songOptions = {
   English: ["Shape of You", "Blinding Lights", "Someone Like You"],
@@ -8,6 +10,7 @@ const songOptions = {
   Korean: ["Butter", "Dynamite", "Kill This Love"],
   Others: ["Song A", "Song B", "Song C"],
 };
+
 
 const Input = () => {
   const [selectedLang, setSelectedLang] = useState(null);
@@ -108,6 +111,36 @@ const Input = () => {
           </div>
         </div>
       </div>
+
+   {/* Submit Button */}
+   <button
+onClick={() => {
+  console.log("🔔 Submit button clicked");
+  console.log("🌐 Language:", selectedLang);
+  console.log("🎵 Song:", search);
+
+  fetch("http://127.0.0.1:5000/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      language: selectedLang,
+      song: search,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("✅ Server response:", data.message);
+    })
+    .catch((err) => console.error("❌ Fetch error:", err));
+}}
+
+  className="mt-8 px-6 py-3 bg-gradient-to-r from-[#6a3093] to-[#a044ff] text-white rounded-xl shadow-lg border border-white/20 hover:scale-105 transition-transform duration-300"
+>
+  Submit
+</button>
+
     </div>
   );
 };
