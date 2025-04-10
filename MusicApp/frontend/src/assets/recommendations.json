@@ -1,51 +1,51 @@
 [
     {
-        "name": "Antisocial (with Travis Scott) - MK Remix",
-        "artist": "Maroon 5",
-        "similarity": 0.12342054237238599,
-        "track_url": "https://open.spotify.com/track/1RI6DI6ECnmYWoMEvdzkZn",
+        "name": "Humdard",
+        "artist": "Arijit Singh, Aakanksha Sharma",
+        "similarity": 0.9176479762153839,
+        "track_url": "https://open.spotify.com/track/24WHD13pufAkPW1R2m3yQD",
         "artwork_url": "assets/image1.jpg"
     },
     {
-        "name": "Until You Were Gone (feat. Emily Warren) - Boehm Remix",
-        "artist": "Maroon 5",
-        "similarity": 0.10372803850681671,
-        "track_url": "https://open.spotify.com/track/75NUvItQlWyvnV08CJ3JKU",
+        "name": "Egiye De",
+        "artist": "Arijit Singh",
+        "similarity": 0.9162490817451833,
+        "track_url": "https://open.spotify.com/track/16LRHm0vxGStAsCImo626A",
         "artwork_url": "assets/image2.jpg"
     },
     {
-        "name": "Moves Like Jagger - Live In Manchester",
-        "artist": "Vijay Prakash",
-        "similarity": 0.0996410532051679,
-        "track_url": "https://open.spotify.com/track/003G9lHqhSVntZmg5j5Eju",
+        "name": "Ve Maahi",
+        "artist": "Arijit Singh, Nihira Joshi Deshpande",
+        "similarity": 0.9138027709790615,
+        "track_url": "https://open.spotify.com/track/6YsPRqQl1anHQDKEnsJvVn",
         "artwork_url": "assets/image3.jpg"
     },
     {
-        "name": "Mosale Mosale",
-        "artist": "D. Imman, Nakash Aziz, Ramya NSK",
-        "similarity": 0.09502682007666582,
-        "track_url": "https://open.spotify.com/track/1NSOZUSa5lXPvESy3AydYR",
+        "name": "Har Kisi Ko",
+        "artist": "Arijit Singh",
+        "similarity": 0.8930133954454568,
+        "track_url": "https://open.spotify.com/track/1dOBU0QxHV70fVL5PJ8kgD",
         "artwork_url": "assets/image4.jpg"
     },
     {
-        "name": "Shape of You - Galantis Remix",
-        "artist": "Maroon 5",
-        "similarity": 0.06394989976191119,
-        "track_url": "https://open.spotify.com/track/2ZexKE2LSqBYlQsbmAG6Os",
+        "name": "Jab Tak Hai Jaan",
+        "artist": "A.R. Rahman",
+        "similarity": 0.8876080482484614,
+        "track_url": "https://open.spotify.com/track/0gktq7d62pEiregKVHqEn3",
         "artwork_url": "assets/image5.jpg"
     },
     {
-        "name": "South of the Border (feat. Camila Cabello & Cardi B)",
-        "artist": "Maroon 5",
-        "similarity": 0.061201310851300525,
-        "track_url": "https://open.spotify.com/track/3Vxcr8MZv6R3QyQ2buIwNf",
+        "name": "Raabta",
+        "artist": "Pritam, Shreya Ghoshal",
+        "similarity": 0.8858647176978989,
+        "track_url": "https://open.spotify.com/track/0m4VreaNduvs42gclXykew",
         "artwork_url": "assets/image6.jpg"
     },
     {
-        "name": "Moves Like Jagger - Studio Recording From \"The Voice\" Performance",
-        "artist": "Vijay Prakash",
-        "similarity": 0.05725617142591779,
-        "track_url": "https://open.spotify.com/track/3pQFOXZSkakIYkcVFQlK7J",
+        "name": "Har Kisi Ko (From \"Boss)",
+        "artist": "Arijit Singh, Neha Kakkar, Meet Bros.",
+        "similarity": 0.8856679700585913,
+        "track_url": "https://open.spotify.com/track/38MGm6RLMHXNGHfwJ3m1xa",
         "artwork_url": "assets/image7.jpg"
     }
 ]

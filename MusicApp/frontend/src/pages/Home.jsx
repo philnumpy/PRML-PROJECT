@@ -142,8 +142,7 @@ function HomeContent() {
                     songIndex={i}
                     trackUrl={song.trackUrl}
                     similarity={song.similarity}
-                    className="flex-none" // Ensure cards do not shrink
-                    style={{ width: "250px" }} // Set a fixed width for cards
+                    className="flex-none w-[250px]"// Set a fixed width for cards
                   />
                 ))}
             </div>
