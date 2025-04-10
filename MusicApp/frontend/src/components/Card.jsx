@@ -17,29 +17,35 @@ function Card({ name, image, singer, songIndex, trackUrl, similarity }) {
   const songExistInLiked = likedSong.some((song) => song.songIndex === songIndex);
 
   return (
-    <div className="w-[90%] h-[70px] md:h-[90px] bg-gray-800 rounded-lg flex justify-center items-center hover:bg-gray-600 transition-all">
-      <div
-        className="flex justify-start items-center gap-[30px] w-[70%] h-[100%] p-[2px] md:p-[5px] cursor-pointer"
-        onClick={() => {
-          setIndex(songIndex);
-          playSong(songIndex);
-        }}
-      >
-        <div>
-          <img
-            src={image}
-            alt=""
-            className="w-[60px] max-h-[60px] md:max-h-[80px] md:w-[80px] rounded-lg"
-          />
-        </div>
-        <div className="text-[15px] md:text-[20px]">
-          <div className="text-white text-[1.1em] font-semibold">{name}</div>
-          <div className="text-white text-[0.6em] font-semibold">{singer}</div>
-        </div>
+    <div className="w-[250px] h-[350px] bg-gray-800 rounded-lg flex flex-col justify-between items-center p-6 hover:bg-gray-600 transition-all">
+      {/* Image */}
+      <div className="w-full h-[200px] flex justify-center mb-4">
+        <img
+          src={image}
+          alt=""
+          className="w-[150px] h-[150px] md:w-[180px] md:h-[180px] rounded-lg object-cover"
+        />
       </div>
 
-      <div className="flex justify-center items-center gap-[30px] w-[30%] h-[100%] p-[2px] md:p-[5px] text-[15px] md:text-[20px]">
-        
+      {/* Song Information */}
+      <div className="text-center text-white">
+        <div className="text-[1.2em] font-semibold mb-2 overflow-hidden text-ellipsis whitespace-nowrap" style={{ maxWidth: '200px' }}>
+          {name}
+        </div>
+        <div className="text-[1em] font-semibold mb-2 overflow-hidden text-ellipsis whitespace-nowrap" style={{ maxWidth: '200px' }}>
+          {singer}
+        </div>
+        {trackUrl && (
+          <div className="text-[0.85em] text-gray-300 mt-2 truncate">
+            <a href={trackUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+              Listen here
+            </a>
+          </div>
+        )}
+      </div>
+
+      {/* Action buttons (Playlist and Like) */}
+      <div className="flex justify-between items-center w-full mt-4">
         <div
           onClick={() => {
             if (songExistInPlaylist) {
@@ -56,7 +62,6 @@ function Card({ name, image, singer, songIndex, trackUrl, similarity }) {
           )}
         </div>
 
-      
         <div
           onClick={() => {
             if (songExistInLiked) {
@@ -78,4 +83,5 @@ function Card({ name, image, singer, songIndex, trackUrl, similarity }) {
 }
 
 export default Card;
+
 

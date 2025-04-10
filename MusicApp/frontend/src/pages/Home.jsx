@@ -120,19 +120,20 @@ function HomeContent() {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row w-full h-full">
-        {/* Right side */}
-        <div
-          ref={recommendationsSectionRef} // Added ref to this section
-          className="w-full md:w-[100%] flex flex-col gap-4 overflow-y-auto h-[85vh] py-4" // Added padding and vertical scroll
-        >
-          {showRecommendations && (
-            <>
-              <h2 className="text-white text-3xl font-semibold mb-8 text-center">
-                Following are your recommendations
-              </h2>
-              <div className="flex flex-col gap-4 flex-grow overflow-y-auto">
-                {songsData.length > 0 && songsData.map((song, i) => (
+      <div
+        ref={recommendationsSectionRef}
+        className="w-full h-full flex flex-col justify-start items-center py-4"
+      >
+        {showRecommendations && (
+          <>
+            <h2 className="text-white text-3xl font-semibold mb-8 text-center">
+              Following are your recommendations
+            </h2>
+
+            {/* Horizontal scrollable container */}
+            <div className="flex w-full gap-4 overflow-x-auto pb-4 whitespace-nowrap">
+              {songsData.length > 0 &&
+                songsData.map((song, i) => (
                   <Card
                     key={i}
                     name={song.name}
@@ -141,18 +142,16 @@ function HomeContent() {
                     songIndex={i}
                     trackUrl={song.trackUrl}
                     similarity={song.similarity}
+                    className="flex-none" // Ensure cards do not shrink
+                    style={{ width: "250px" }} // Set a fixed width for cards
                   />
                 ))}
-              </div>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
 
 export default Home;
-
-
-
