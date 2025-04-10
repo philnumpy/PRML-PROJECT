@@ -135,15 +135,17 @@ function HomeContent() {
               {songsData.length > 0 &&
                 songsData.map((song, i) => (
                   <Card
-                    key={i}
-                    name={song.name}
-                    image={song.image}
-                    singer={song.singer}
-                    songIndex={i}
-                    trackUrl={song.trackUrl}
-                    similarity={song.similarity}
-                    className="flex-none w-[250px]"// Set a fixed width for cards
-                  />
+  key={i}
+  name={song.name}
+  image={song.image}
+  singer={song.singer}
+  songIndex={i}
+  trackUrl={song.trackUrl}
+  similarity={song.similarity}
+  className="flex-none w-[250px] h-[350px] overflow-hidden" // Set fixed width and height, prevent overflow
+  style={{ minWidth: "250px", maxWidth: "250px" }} // Ensure no shrinking or growing
+/>
+
                 ))}
             </div>
           </>
