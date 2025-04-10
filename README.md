@@ -69,6 +69,37 @@ By analyzing the input song's audio features, we find the most similar songs wit
 - Evaluated qualitatively with positive alignment to user preferences in mood, rhythm, and genre
 
 ---
+## 🚀 How to Run the Project
+
+1. **Clone the Repository**  
+   ```
+   git clone <repo-url>
+   cd MusicApp
+   ```
+
+2. **Start the Frontend**  
+   ```
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+3. **Start the Backend** (in a second terminal)  
+   ```
+   python app.py
+   ```
+   Make sure to install necessary Python imports using:  
+   ```
+   pip install -r requirements.txt
+   ```
+
+4. **Use the App**  
+   - Open your browser and go to `http://localhost:3000`(localhost where the frontend runs)
+   - Click the **"Get Started"** button  
+   - Select a language and search for a song  
+   - Click **"Show Recommendations"** to view similar songs  
+
+---
 
 ## 🚀 Future Work
 
