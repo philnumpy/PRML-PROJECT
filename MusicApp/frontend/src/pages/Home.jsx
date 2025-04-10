@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { songsData } from "../songs";
-import musicImg from "../assets/musicanim.webp";
+
 import { MdSkipPrevious, MdSkipNext, MdOutlinePause } from "react-icons/md";
 import { IoPlay } from "react-icons/io5";
 import { datacontext } from "../context/UserContext";
@@ -107,7 +107,7 @@ function HomeContent() {
 </div>
 
       <div className="flex flex-col md:flex-row w-full h-full">
-        {/* Left side */}
+        {/*{/* Left side 
         <div className="w-full md:w-[50%] flex justify-start items-center pt-[30px] md:pt-[90px] flex-col gap-5">
           <h1 className="text-white font-semibold text-[20px]" style={{ marginTop: "-10px" }}>
             Now Playing
@@ -156,15 +156,25 @@ function HomeContent() {
             <MdSkipNext className="w-[35px] h-[35px] hover:text-slate-600 transition-all cursor-pointer" onClick={nextSong} />
           </div>
         </div>
-  
-        {/* Right side */}
-        <div className="w-full md:w-[50%] flex flex-col gap-4 pb-[10px] overflow-y-auto h-[85vh] mt-[60px] pt-[20px]">
-          {songsData.map((song, i) => (
-            <Card key={i} name={song.name} image={song.image} singer={song.singer} songIndex={i} />
-          ))}
+       */}
+       {/* Right side */}
+       <div className="w-full md:w-[100%] flex flex-col gap-4  overflow-y-auto h-[85vh] ">
+          <h2 className="text-white text-2xl font-semibold mb-4 text-center">
+            Following are your recommendations
+          </h2>
+          <div className="flex flex-col gap-4 flex-grow">
+            {songsData.map((song, i) => (
+              <Card
+                key={i}
+                name={song.name}
+                image={song.image}
+                singer={song.singer}
+                songIndex={i}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </div>
+    </div></div>
   );
   
 }

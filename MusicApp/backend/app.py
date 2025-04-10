@@ -5,11 +5,18 @@ import joblib
 import numpy as np
 import pandas as pd
 import requests
+from flask import jsonify 
 from kmeans_custom import KMeansFromScratch
 from song_recommender import SongRecommender  # Import your SongRecommender class
 
 app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app, resources={r"/*": {
+    "origins": "http://localhost:5173",
+    "allow_headers": "*",
+    "methods": ["GET", "POST", "OPTIONS"]
+}})
+
+
 
 MODEL_DIR = "models"  # Directory where your .pkl model files are stored
 
@@ -106,6 +113,9 @@ def update_songs_js(recommendations, language):
     with open(songs_js_path, 'w') as f:
         f.write("export const songsData = ")
         f.write(json.dumps(songs_data, indent=2))  # Write the formatted song data
+@app.route('/submit', methods=['OPTIONS'])
+def options():
+    return '', 200  # Respond with a successful status to preflight requests
 
 @app.route('/submit', methods=['POST'])
 def receive_input():
@@ -155,4 +165,4 @@ def serve_react(path=""):
         return send_from_directory(app.static_folder, "index.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
