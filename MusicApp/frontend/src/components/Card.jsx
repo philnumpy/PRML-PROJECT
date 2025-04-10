@@ -1,25 +1,20 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AddSong, RemoveSong } from "../redux/PlaylistSlice";
-import { songsData } from "../songs";
 import { MdOutlinePlaylistAdd, MdOutlinePlaylistRemove } from "react-icons/md";
 import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { datacontext } from "../context/UserContext";
-import { AddLiked, RemoveLiked } from "../redux/LikedSlice"; // 👈 ADD THIS LINE
+import { AddLiked, RemoveLiked } from "../redux/LikedSlice";
 
-function Card({ name, image, singer, songIndex }) {
-  console.log("Card:", name, singer, songIndex);
+function Card({ name, image, singer, songIndex, trackUrl, similarity }) {
+  console.log("Card:", name, singer, songIndex, trackUrl, similarity);
 
   let { playSong, index, setIndex } = useContext(datacontext);
   let dispatch = useDispatch();
   let gaana = useSelector((state) => state.playlist);
-  const songExistInPlaylist = gaana.some(
-    (song) => song.songIndex === songIndex
-  );
+  const songExistInPlaylist = gaana.some((song) => song.songIndex === songIndex);
   let likedSong = useSelector((state) => state.liked);
-  const songExistInLiked = likedSong.some(
-    (song) => song.songIndex === songIndex
-  );
+  const songExistInLiked = likedSong.some((song) => song.songIndex === songIndex);
 
   return (
     <div className="w-[90%] h-[70px] md:h-[90px] bg-gray-800 rounded-lg flex justify-center items-center hover:bg-gray-600 transition-all">
@@ -50,7 +45,7 @@ function Card({ name, image, singer, songIndex }) {
             if (songExistInPlaylist) {
               dispatch(RemoveSong(songIndex));
             } else {
-              dispatch(AddSong({ name, image, singer, songIndex }));
+              dispatch(AddSong({ name, image, singer, songIndex, trackUrl, similarity }));
             }
           }}
         >
@@ -67,7 +62,7 @@ function Card({ name, image, singer, songIndex }) {
             if (songExistInLiked) {
               dispatch(RemoveLiked(songIndex));
             } else {
-              dispatch(AddLiked({ name, image, singer, songIndex }));
+              dispatch(AddLiked({ name, image, singer, songIndex, trackUrl, similarity }));
             }
           }}
         >

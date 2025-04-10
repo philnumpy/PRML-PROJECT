@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Paradise",
+        "artist": "One Direction, Afterhrs",
+        "similarity": 0.9999929549848391,
+        "track_url": "https://open.spotify.com/track/6yUNcknEpIg92uh38iAfdM",
+        "artwork_url": "assets/image1.jpg"
+    },
+    {
+        "name": "Paris - Jewelz & Sparks Remix",
+        "artist": "Maroon 5",
+        "similarity": 0.9999853596983693,
+        "track_url": "https://open.spotify.com/track/0UiIXqcg3vdFhQmW252D1I",
+        "artwork_url": "assets/image2.jpg"
+    },
+    {
+        "name": "Dive",
+        "artist": "Maroon 5, SZA",
+        "similarity": 0.9999852519352744,
+        "track_url": "https://open.spotify.com/track/0zTno1OVfLU9r9lslVW7Qf",
+        "artwork_url": "assets/image3.jpg"
+    },
+    {
+        "name": "Up in Flames - Live",
+        "artist": "One Direction",
+        "similarity": 0.9999765909968679,
+        "track_url": "https://open.spotify.com/track/4fa1TicRIFloaEVUubYfTV",
+        "artwork_url": "assets/image4.jpg"
+    },
+    {
+        "name": "Paradise - Live",
+        "artist": "One Direction",
+        "similarity": 0.9999362658207319,
+        "track_url": "https://open.spotify.com/track/6Vh03bkEfXqekWp7Y1UBRb",
+        "artwork_url": "assets/image5.jpg"
+    },
+    {
+        "name": "Rap God",
+        "artist": "Maroon 5, Christina Aguilera",
+        "similarity": 0.999827918212763,
+        "track_url": "https://open.spotify.com/track/12HT4n0y12cqPVwLd4rivT",
+        "artwork_url": "assets/image6.jpg"
+    },
+    {
+        "name": "Up All Night - Live",
+        "artist": "Eminem",
+        "similarity": 0.9998106229449855,
+        "track_url": "https://open.spotify.com/track/1j3xklNkCxsfYYMhBJBUnR",
+        "artwork_url": "assets/image7.jpg"
+    }
+]

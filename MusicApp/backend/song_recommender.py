@@ -3,6 +3,7 @@ import re
 import requests
 import numpy as np
 from glob import glob
+import json
 from sklearn.metrics.pairwise import cosine_similarity
 
 class SongRecommender:
@@ -119,5 +120,20 @@ class SongRecommender:
                     "track_url": track_url,
                     "artwork_url": local_image_path,
                 })
+        print(f"Recommendations: {recommendations}") 
+        self.write_recommendations_to_file(recommendations)
 
         return jsonify(recommendations)
+   
+    def write_recommendations_to_file(self, recommendations, file_format="json"):
+        """
+        Writes the recommendations to a file (JSON format).
+        """
+        # Prepare the file path
+        file_path = os.path.join(self.assets_folder, "recommendations.json")
+
+        if file_format == "json":
+            # Write recommendations to a JSON file, overwriting any existing content
+            with open(file_path, 'w') as f:
+                json.dump(recommendations, f, indent=4)
+            print(f"📄 Recommendations saved to {file_path}")
