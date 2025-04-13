@@ -1,51 +1,51 @@
 [
     {
-        "name": "I Feel It Coming",
-        "artist": "The Weeknd",
-        "similarity": 0.9107284691342562,
-        "track_url": "https://open.spotify.com/track/4jAbAakxgkZSubdmxYrSFR",
+        "name": "Tenerife Sea",
+        "artist": "Maroon 5",
+        "similarity": 0.9778295392248003,
+        "track_url": "https://open.spotify.com/track/3Ja8TQGd6r0tNunCsO80Mz",
         "artwork_url": "assets/image1.jpg"
     },
     {
-        "name": "I Feel It Coming",
-        "artist": "The Weeknd",
-        "similarity": 0.9089408518870274,
-        "track_url": "https://open.spotify.com/track/4bjYKaezFMcmiyNvRcRIwL",
+        "name": "Tenerife Sea",
+        "artist": "Maroon 5, Megan Thee Stallion",
+        "similarity": 0.9702760832577538,
+        "track_url": "https://open.spotify.com/track/69zwe3EpyLgyq2ywDRk3a6",
         "artwork_url": "assets/image2.jpg"
     },
     {
-        "name": "Kiss It Better",
-        "artist": "BTS",
-        "similarity": 0.9003562671021446,
-        "track_url": "https://open.spotify.com/track/1VjqXwHU3isibdXLEtXc4q",
+        "name": "All I Ask",
+        "artist": "Coldplay",
+        "similarity": 0.9280241190452959,
+        "track_url": "https://open.spotify.com/track/3HWDWyIqWuLsTHECx9DvXF",
         "artwork_url": "assets/image3.jpg"
     },
     {
-        "name": "Hope",
-        "artist": "Maroon 5",
-        "similarity": 0.8950199616366575,
-        "track_url": "https://open.spotify.com/track/1G1vR5IxpcxY9yRypwoIvF",
+        "name": "happiness",
+        "artist": "Taylor Swift, Bleachers",
+        "similarity": 0.9143401160710168,
+        "track_url": "https://open.spotify.com/track/6Qe6tGzW3ooE65GzfcNp8U",
         "artwork_url": "assets/image4.jpg"
     },
     {
-        "name": "South of the Border (feat. Camila Cabello & Cardi B) - Cheat Codes Remix",
-        "artist": "Maroon 5, SZA",
-        "similarity": 0.8891885446010552,
-        "track_url": "https://open.spotify.com/track/303dES6TkKqsb4iXUfy50t",
+        "name": "illicit affairs",
+        "artist": "Taylor Swift",
+        "similarity": 0.9057122908397671,
+        "track_url": "https://open.spotify.com/track/7zcJSflhqcSGICHUjgncnj",
         "artwork_url": "assets/image5.jpg"
     },
     {
-        "name": "You Da One",
-        "artist": "BTS",
-        "similarity": 0.8776557688129685,
-        "track_url": "https://open.spotify.com/track/04VFVcgVTNJ18cXQIzre9O",
+        "name": "Forever & Always (Piano Version) (Taylor's Version)",
+        "artist": "Taylor Swift",
+        "similarity": 0.8994595038495471,
+        "track_url": "https://open.spotify.com/track/30Y4CV7A6YqtQtTTo7Ue4j",
         "artwork_url": "assets/image6.jpg"
     },
     {
-        "name": "What Do I Know?",
-        "artist": "Maroon 5",
-        "similarity": 0.8738489272096196,
-        "track_url": "https://open.spotify.com/track/3YBz6OoWPo43TGWfpYUxdu",
+        "name": "happiness",
+        "artist": "Taylor Swift",
+        "similarity": 0.8987821322504268,
+        "track_url": "https://open.spotify.com/track/3xYJScVfxByb61dYHTwiby",
         "artwork_url": "assets/image7.jpg"
     }
 ]

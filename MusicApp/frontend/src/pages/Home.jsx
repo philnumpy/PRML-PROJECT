@@ -124,32 +124,30 @@ function HomeContent() {
         ref={recommendationsSectionRef}
         className="w-full h-full flex flex-col justify-start items-center py-4"
       >
-        {showRecommendations && (
-          <>
-            <h2 className="text-white text-3xl font-semibold mb-8 text-center">
-              Following are your recommendations
-            </h2>
+{showRecommendations && (
+  <>
+    <h2 className="text-white text-3xl font-semibold mb-8 text-center">
+      Following are your recommendations
+    </h2>
 
-            {/* Horizontal scrollable container */}
-            <div className="flex w-full gap-4 overflow-x-auto pb-4 whitespace-nowrap">
-              {songsData.length > 0 &&
-                songsData.map((song, i) => (
-                  <Card
-  key={i}
-  name={song.name}
-  image={song.image}
-  singer={song.singer}
-  songIndex={i}
-  trackUrl={song.trackUrl}
-  similarity={song.similarity}
-  className="flex-none w-[250px] h-[350px] overflow-hidden" // Set fixed width and height, prevent overflow
-  style={{ minWidth: "250px", maxWidth: "250px" }} // Ensure no shrinking or growing
-/>
+    {/* Grid container: 4 columns, 2 rows max */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+      {songsData.slice(0, 8).map((song, i) => (
+        <Card
+          key={i}
+          name={song.name}
+          image={song.image}
+          singer={song.singer}
+          songIndex={i}
+          trackUrl={song.trackUrl}
+          similarity={song.similarity}
+          className="w-[250px] h-[350px] overflow-hidden rounded-xl shadow-md"
+        />
+      ))}
+    </div>
+  </>
+)}
 
-                ))}
-            </div>
-          </>
-        )}
       </div>
     </div>
   );

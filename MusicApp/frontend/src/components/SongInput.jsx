@@ -36,7 +36,7 @@ const Input = () => {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center px-4 bg-black text-white overflow-hidden">
+    <div className="w-screen h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-b from-black via-gray-900 to-blacktext-white overflow-hidden">
       <h2 className="text-white text-3xl font-semibold mb-6 tracking-wide drop-shadow-md">
         Choose Your Language
       </h2>
