@@ -142,6 +142,15 @@ def receive_input():
     except Exception as e:
         print(f"❌ Error during recommendation: {e}")
         return jsonify({"error": str(e)}), 500
+    
+@app.route('/get_song_names', methods=['GET'])
+def get_song_names():
+    language = request.args.get('language')
+    try:
+        song_names = load_song_names_user_language(language)
+        return jsonify({"songs": song_names})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/')
 @app.route('/<path:path>')
