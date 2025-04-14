@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Jekyll Site CI/CD
 
 on:
   push:
@@ -6,15 +6,40 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  DOCKER_IMAGE: jekyll/builder:latest
+
+# Define common steps as an anchor so they can be reused in multiple jobs.
+# Here, the common step is checking out the repository.
+steps_common: &common-steps
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+      # Reuse the common checkout step defined in the anchor above.
+      - <<: *common-steps
+
+      - name: Build the Jekyll Site in Docker
+        run: |
+          docker run \
+            -v ${{ github.workspace }}:/srv/jekyll \
+            -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+            ${{ env.DOCKER_IMAGE }} \
+            /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # Reuse the common checkout step again.
+      - <<: *common-steps
+
+      # Use a popular GitHub Action to deploy the _site folder to GitHub Pages.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
