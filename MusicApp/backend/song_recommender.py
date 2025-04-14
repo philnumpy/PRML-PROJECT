@@ -52,78 +52,75 @@ class SongRecommender:
             return None
 
     def recommend(self, input_song_vector, input_song_name=None, n=7, language=None, indices_by_language=None, original_indices=None, original_data=None):
-        """
-        Generate song recommendations based on input song features.
-        """
-        # ✅ Clear images before new recommendation
-        self.clear_old_images()
+     self.clear_old_images()
+     self.image_counter = 1
+ 
+     # Find cluster
+     input_cluster = np.argmin([
+        np.linalg.norm(input_song_vector - c)
+        for c in self.model.centroids
+     ])
+     print(f"🎯 Input song belongs to cluster: {input_cluster}")
 
-        # Reset counter for naming
-        self.image_counter = 1
+     cluster_indices = np.where(self.labels == input_cluster)[0]
+     cluster_songs = self.data[cluster_indices]
 
-        # Find the cluster of the input song
-        input_cluster = np.argmin([
-            np.linalg.norm(input_song_vector - c)
-            for c in self.model.centroids
-        ])
-        print(f"🎯 Input song belongs to cluster: {input_cluster}")
+     similarities = cosine_similarity([input_song_vector], cluster_songs)[0]
+     sorted_indices = np.argsort(similarities)[::-1]
 
-        cluster_indices = np.where(self.labels == input_cluster)[0]
-        cluster_songs = self.data[cluster_indices]
+     top_n_indices = []
+     input_name_norm = self._normalize_name(input_song_name) if input_song_name else ""
+ 
+     for i in sorted_indices:
+        idx = cluster_indices[i]
+        selected_song_name = self.song_names[idx]
+        selected_song_name_norm = self._normalize_name(selected_song_name)
 
-        similarities = cosine_similarity([input_song_vector], cluster_songs)[0]
-        sorted_indices = np.argsort(similarities)[::-1]
+        if selected_song_name_norm == input_name_norm:
+            continue
 
-        top_n_indices = []
-        input_name_norm = self._normalize_name(input_song_name) if input_song_name else ""
+        top_n_indices.append(idx)
+        if len(top_n_indices) == n:
+            break
 
-        for i in sorted_indices:
-            idx = cluster_indices[i]
-            selected_song_name = self.song_names[idx]
-            selected_song_name_norm = self._normalize_name(selected_song_name)
+     print(f"\n🎵 Top {n} recommendations:")
+     recommendations = []
 
-            if selected_song_name_norm == input_name_norm:
-                continue
+     if original_indices is None or original_data is None:
+        raise ValueError("Missing original_indices or original_data")
 
-            top_n_indices.append(idx)
-            if len(top_n_indices) == n:
-                break
+     for idx in top_n_indices:
+        original_idx = original_indices[idx]
+        row = original_data.iloc[original_idx]
 
-        print(f"\n🎵 Top {n} recommendations:")
-        recommendations = []
+        name = row['track_name']
+        artist = row['artist_name']
+        track_url = row['track_url']
+        artwork_url = row['artwork_url']
+        language = row['language']
 
-        if original_indices is None or original_data is None:
-            raise ValueError("Missing original_indices or original_data")
+        local_image_path = self.download_image(artwork_url)
 
-        for idx in top_n_indices:
-            original_idx = original_indices[idx]
-            name = self.song_names[idx]
-            artist = original_data.loc[original_idx, 'artist_name']
-            track_url = original_data.loc[original_idx, 'track_url']
-            artwork_url = original_data.loc[original_idx, 'artwork_url']
-            language = original_data.loc[original_idx, 'language']
+        sim_score = cosine_similarity([input_song_vector], [self.data[idx]])[0][0]
 
-            local_image_path = self.download_image(artwork_url)
+        print(f"- {name} by {artist} (Similarity: {sim_score:.4f})")
+        print(f"  🎧 Track URL: {track_url}")
+        print(f"  🎨 Image Path: {local_image_path}")
+        print(f"  🌐 Language: {language}\n")
 
-            if local_image_path:
-                sim_score = cosine_similarity([input_song_vector], [self.data[idx]])[0][0]
+        recommendations.append({
+            "name": name,
+            "artist": artist,
+            "similarity": sim_score,
+            "track_url": track_url,
+            "artwork_url": local_image_path,
+        })
 
-                print(f"- {name} by {artist} (Similarity: {sim_score:.4f})")
-                print(f"  🎧 Track URL: {track_url}")
-                print(f"  🎨 Image Path: {local_image_path}")
-                print(f"  🌐 Language: {language}\n")
+     print(f"✅ Final recommendations: {recommendations}")
+     self.write_recommendations_to_file(recommendations)
+     return recommendations  # return raw list for API to jsonify
 
-                recommendations.append({
-                    "name": name,
-                    "artist": artist,
-                    "similarity": sim_score,
-                    "track_url": track_url,
-                    "artwork_url": local_image_path,
-                })
-        print(f"Recommendations: {recommendations}") 
-        self.write_recommendations_to_file(recommendations)
 
-        return jsonify(recommendations)
    
     def write_recommendations_to_file(self, recommendations, file_format="json"):
         """
